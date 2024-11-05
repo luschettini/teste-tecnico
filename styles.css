@@ -1,6 +1,4 @@
-
-  
-  body {
+body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
     display: flex;
@@ -8,16 +6,18 @@
     align-items: center;
     min-height: 100vh;
     color: #333;
+    margin: 0;
+    overflow: hidden;
   }
   
   .container {
     display: flex;
-    width: 100%;
+    width: 90%;
     max-width: 1200px;
+    height: 75vh;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    height: 60vh;
   }
 
   /* Metade branca (carrinho) */
@@ -30,20 +30,61 @@
     justify-content: space-between;
   }
 
-  .header {
+  .cart-items {
+    flex-grow: 1;
+    overflow-y: hidden;
+    border-radius: 8px;
+    background-color: #525252;
+  }
+
+  .texts {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
+    flex-direction: column;
   }
   
-  .user-icons {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+  .item {
+    background-color: #c4c4c4;
+    width: 90%;
+    height: 22%;
+    border-radius: 2rem;
     display: flex;
-    gap: 15px;
+    align-items: center;
+    margin: 0.5rem;
+    flex-direction: row;
+  }
+
+  .item-name {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+  }
+  .item img {
+    width: 70px;
+    height: auto;
+    margin-right: 10px;
   }
   
+  .item-info {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+  }
+
+  .quantity-section {
+    margin-top: 2rem;
+    flex-direction: column;
+    display: flex;
+    gap: 0.5rem;
+  }
+
+
+  .total-section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+  }
+
   .icon {
     width: 36px;
     height: 36px;
@@ -55,81 +96,6 @@
     gap: 10px
   }
   
-  .back-section {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    cursor: pointer;
-  }
-  
-  .back-text {
-    font-size: 16px;
-    color: #333;
-    cursor: pointer;
-  }
-  
-  .cart-items {
-    max-height: 500px;
-    overflow-y: auto;
-    border-radius: 8px;
-    background-color: #fff;
-  }
-  
-  .item {
-    display: flex;
-    align-items: center;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 10px;
-  }
-  
-  .item img {
-    width: 110px;
-    height: auto;
-    margin-right: 10px;
-  }
-  
-  .item-info {
-    flex: 1;
-    font-size: 14px;
-  }
-  
-  .item-name {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .quantity-selector {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    
-  }
-  
-  .quantity-btn {
-    width: 20px;
-    height: 20px;
-    background-color: #ddd;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    line-height: 20px;
-  }
-  
-  .total-section {
-    margin-top: 20px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .total-section p {
-    margin-right: auto;
-  }
-  
   .cancel-button,
   .checkout-button {
     padding: 10px 20px;
@@ -137,7 +103,6 @@
     font-size: 16px;
     cursor: pointer;
     border-radius: 4px;
-    
     min-width: 120px;
   }
   
@@ -167,10 +132,15 @@
     flex-direction: column;
     align-items: center;
   }
+
   
-  .payment-section h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
+  .help, .segurity-note {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #bbb;
+    width: 100%;
+    margin-top: auto;
   }
   
   .menu-icon {
@@ -186,22 +156,25 @@
   }
   
   .payment-option {
-    width: 40px;
-    height: 40px;
+    width: 120px;
+    height: 100px;
   }
   
-  .card {
-    background-color: #444;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-    color: #fff;
-    margin-top: 20px;
-  }
-  
-  .card-number {
-    font-size: 18px;
-    letter-spacing: 2px;
+.card  img{
+  width: 100%;
+  height: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: auto;
   }
   
   .help,
@@ -211,3 +184,41 @@
     color: #bbb;
     margin-top: auto;
   }
+
+.payment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.payment-header .brand {
+  font-size: 20px;
+}
+
+.payment-header .menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.checkout-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 0;
+}
+
+.line {
+  background-color: #f4f4f9;
+  width: 20rem;
+  height: 0.1rem;
+}
+
+.text-02 {
+  text-decoration: underline;}
